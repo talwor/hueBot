@@ -1,6 +1,6 @@
 import discord
 import responses
-import token
+
 
 async def sendMessage(message, userMessage, is_private):
     try:
@@ -12,12 +12,13 @@ async def sendMessage(message, userMessage, is_private):
         
         
 def runDiscordBot():
+    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.GRrbdu.qaF2mvFQjfQTkhhSyCE6Vvgh8fjdfqwltwJuV0'
     
     intents = discord.Intents.all() #added from utube vid/new discord intents feature
     intents.message_content = True
     client = discord.Client(intents=intents) #
     
-    client.login(token.TOKEN) #this at front, logs the bot in
+    client.login(TOKEN) #this at front, logs the bot in
     
     @client.event 
     async def onReady():
@@ -40,5 +41,5 @@ def runDiscordBot():
         else:
             await sendMessage(message, userMessage, is_private=False)
     
-    client.run(token.TOKEN) #have this at the end, makes sure that the bot runs
+    client.run(TOKEN) #have this at the end, makes sure that the bot runs
     
