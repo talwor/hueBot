@@ -1,15 +1,8 @@
 import discord
 import responses
+import os
+import assets
 
-
-async def sendMessage(message, userMessage, is_private):
-    try:
-        response = responses.handle_response(userMessage)
-        await message.author.send(response) if is_private else await message.channel.send(response)
-        
-    except Exception as e:
-        print(e)
-        
         
 def runDiscordBot():
     TOKEN = '' #ask me for token if u want 
@@ -20,8 +13,9 @@ def runDiscordBot():
     
     client.login(TOKEN) #this at front, logs the bot in
     
+    
     @client.event 
-    async def onReady():
+    async def on_read():
         print("ready")
         
     @client.event
@@ -35,11 +29,27 @@ def runDiscordBot():
         
         print(f"{username} said: '{userMessage}' ({channel})")
         
-        if userMessage[0] == '?':  #private messaging, if user does ? first
-            userMessage = userMessage[1:]
-            await sendMessage(message, userMessage, is_private=True)
-        else:
-            await sendMessage(message, userMessage, is_private=False)
-    
+        '''
+        the following if statements are for multimedia
+        '''
+        if "sad" in userMessage:
+            await message.channel.send(file=discord.File('assets/imageGif/moyai.png'))
+        
+        if userMessage == "anger":
+            await message.channel.send(file=discord.File('assets/imageGif/wojak.gif'))
+            
+        if userMessage == "NOOO":
+            await message.channel.send(file=discord.File('assets/imageGif/agonyman.gif'))
+        
+        if "hue" in userMessage:
+            await message.channel.send("did you mean", file=discord.File('assets/imageGif/haha.png'))
+        
+        '''
+        else see if responses can do anything
+        '''
+        response = responses.handle_response(userMessage)
+        await message.channel.send(response) 
+        
+
     client.run(TOKEN) #have this at the end, makes sure that the bot runs
     
