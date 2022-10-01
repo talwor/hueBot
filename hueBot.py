@@ -5,7 +5,7 @@ import assets
 
         
 def runDiscordBot():
-    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.GGlgbs.s9pzFFGyFBivrEA4fUOuExlC0FMLZeC3PtBXnE' #ask me for token if u want 
+    TOKEN = '' #ask me for token if u want 
     
     intents = discord.Intents.all() #added from utube vid/new discord intents feature
     intents.message_content = True
