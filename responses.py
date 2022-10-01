@@ -15,5 +15,20 @@ def handle_response(message) -> str:
     if pMessage == "roll d20":
         return str(random.randint(1,20)) 
     
-    if pMessage == "bruh":
-        pass
+    if pMessage == "who is bitch":
+        n = random.randint(1,3)
+        if n == 1:
+            return "josh"
+        
+        if n == 2:
+            return "kevin"
+        
+        if n == 3:
+            return "taylor"
+    
+    if pMessage == "bitch":
+        return "ur the bitch"
+    
+    if pMessage == "roll":
+        return "69"
+    

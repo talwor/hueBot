@@ -12,7 +12,7 @@ async def sendMessage(message, userMessage, is_private):
         
         
 def runDiscordBot():
-    TOKEN = '' 
+    TOKEN = '' #ask me for token if u want 
     
     intents = discord.Intents.all() #added from utube vid/new discord intents feature
     intents.message_content = True
