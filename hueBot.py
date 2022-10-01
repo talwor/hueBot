@@ -12,7 +12,7 @@ async def sendMessage(message, userMessage, is_private):
         
         
 def runDiscordBot():
-    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.GRrbdu.qaF2mvFQjfQTkhhSyCE6Vvgh8fjdfqwltwJuV0'
+    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.G32Qid.pzTzo82Yl7Por3IoYPerMZ-F2wewlF7hgwTz' #add <DE> at the end of token to override discord staff thing
     
     intents = discord.Intents.all() #added from utube vid/new discord intents feature
     intents.message_content = True
