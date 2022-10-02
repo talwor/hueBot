@@ -20,7 +20,7 @@ def handle_response(message) -> str:
     if pMessage == "sex":
         return "i know what sex is but i wont tell you"
     
-    if pMessage =="<:hue:945524033338900560> help":
+    if pMessage =="help":
         return "nah <:hue:945524033338900560>"
     
     if pMessage == "bruh":
@@ -59,3 +59,9 @@ def handle_response(message) -> str:
             return f"{user}'s size: 8"+string+"D"
         else:
             return "ur size: 8"+string+"D"
+        
+    if pMessage.split()[0] == "8ball":
+        ballList = ["yeah lmao <:hue:945524033338900560>", "bruhaps :moyai:", "yeah nah yeah nah"
+                    "nah", "fuck off", "u suk", "probably"]
+        n = random.randint(0,len(ballList))
+        return ballList[n-1]
