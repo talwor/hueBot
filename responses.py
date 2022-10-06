@@ -1,42 +1,44 @@
 import random
-import re
 
 def handle_response(message) -> str:
-    pMessage = message.lower()
-    if pMessage == "<:hue:945524033338900560>": #guilds of ravenwind specific emoji
+    message = message.lower()
+    if message == "<:hue:945524033338900560>" : #guilds of ravenwind specific emoji
         return "<:hue:945524033338900560>"
     
-    if pMessage == "roll d20":
+    if message == "roll d20":
         return str(random.randint(1,20)) 
     
-    if pMessage == "who is bitch":
+    if message == "who is bitch":
         listName = ["josh", "kevin", "taylor","leelee", "sam", "sam lmao"]
         n = random.randint(1,len(listName))
         return listName[n-1]
     
-    if pMessage == "bitch":
+    if message == "bitch":
         return "ur the bitch"
     
-    if pMessage == "sex":
+    if message == "sex":
         return "i know what sex is but i wont tell you"
     
-    if pMessage =="help":
+    if (message =="<:hue:945524033338900560> help") or message == "hueHelp":
         return "nah <:hue:945524033338900560>"
     
-    if pMessage == "bruh":
+    if message == "bruh":
         return ":moyai:"
     
-    if pMessage.split()[0] == "annoy":
-        return f"nerd {pMessage.split()[1]}"
+    if message.split()[0] == "annoy":
+        return f"nerd {message.split()[1]}"
     
     if "HAH" in message:
         return "shut up"
     
     if "idk" in message:
         return "stupid bitch"
+    
+    if "bruh" in message:
+        return "moyai"
 
-    if pMessage.split()[0] == "roll": #dice roller
-        dieList = re.split("[\s|\+]",pMessage)
+    if message.split()[0] == "roll": #dice roller
+        dieList = re.split("[\s|\+]",message)
         
         dieNumber = int(dieList[1].replace("d", ""))
         
@@ -51,17 +53,29 @@ def handle_response(message) -> str:
         string2 = "total: " + str(finalNumber)
         return string + " " + string2
     
-    if pMessage.split()[0] == "size":
+    if message.split()[0] == "size":
         number = random.randint(0,10)
         string = number*"="
-        if len(pMessage.split()) > 1:
-            user = pMessage.split()[1]
+        if len(message.split()) > 1:
+            user = message.split()[1]
             return f"{user}'s size: 8"+string+"D"
         else:
             return "ur size: 8"+string+"D"
         
-    if pMessage.split()[0] == "8ball":
-        ballList = ["yeah lmao <:hue:945524033338900560>", "bruhaps :moyai:", "yeah nah yeah nah"
-                    "nah", "fuck off", "u suk", "probably"]
+    if message.split()[0] == "8ball":
+        ballList = ["yeah lmao <:hue:945524033338900560>", "bruhaps :moyai:", "yeah nah yeah nah", 
+                    "fuck off", "u suk", "probably"]
         n = random.randint(0,len(ballList))
         return ballList[n-1]
+    
+    if message == "among us":
+        return "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀ ⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀ ⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀ ⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀ ⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀ ⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀ ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀ ⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀ ⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+    
+    if message == "aha":
+        return ":eyes:....nah nevermind.... <:eyes2:935047776293752872>...unless?"
+    
+    if message == "<a:battle:1026408741433770045>": #guilds of ravenwind specific groove
+        return "<a:groove:1026408727236051006>"
+    
+    if message == "<a:groove:1026408727236051006>":
+        return "<a:battle:1026408741433770045>"

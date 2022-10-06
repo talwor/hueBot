@@ -2,10 +2,9 @@ import discord
 import responses
 import os
 import assets
-
-        
+     
 def runDiscordBot():
-    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.GDXQIw.a4rgHfaG_aOsDU0EpLvBxcX5mc5-9UlwLUc2wg' #ask me for token if u want 
+    TOKEN = 'MTAyNTQxNTI0NDEwNjk2OTE0OQ.GEOGan.y6jXdd8oWKAj9TxvxZvwihsK_1MgFwNRjGXH9w' #ask me for token if u want 
     
     intents = discord.Intents.all() #added from utube vid/new discord intents feature
     intents.message_content = True
@@ -15,8 +14,10 @@ def runDiscordBot():
     
     
     @client.event 
-    async def on_read():
-        print("ready")
+    async def on_ready():
+        #status
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='farts'))
+        
         
     @client.event
     async def on_message(message): #specific on_message format needed
@@ -32,6 +33,10 @@ def runDiscordBot():
         '''
         the following if statements are for multimedia
         '''
+        
+        if ("<:hue:945524033338900560>" in userMessage) or ("<:jU570fSTMucYUKyohxNC1g:946211396901818439>" in userMessage):
+            await message.add_reaction("<:hue:945524033338900560>")
+        
         if "sad" in userMessage:
             await message.channel.send(file=discord.File('assets/imageGif/moyai.png'))
         
@@ -41,7 +46,7 @@ def runDiscordBot():
         if userMessage == "NOOO":
             await message.channel.send(file=discord.File('assets/imageGif/agonyman.gif'))
         
-        if "hue" in userMessage:
+        if userMessage == "hue":
             await message.channel.send("did you mean", file=discord.File('assets/imageGif/haha.png'))
         
         '''
