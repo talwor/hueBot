@@ -1,15 +1,16 @@
 import random
+import re
 
 def handle_response(message) -> str:
     message = message.lower()
-    if message == "<:hue:945524033338900560>" : #guilds of ravenwind specific emoji
+    if "<:hue:945524033338900560>" in message or message == "<:jU570fSTMucYUKyohxNC1g:946211396901818439>" : #guilds of ravenwind specific emoji
         return "<:hue:945524033338900560>"
     
     if message == "roll d20":
         return str(random.randint(1,20)) 
     
     if message == "who is bitch":
-        listName = ["josh", "kevin", "taylor","leelee", "sam", "sam lmao"]
+        listName = ["josh", "kevin", "taylor","leelee", "sam", "sam lmao", "laklan"]
         n = random.randint(1,len(listName))
         return listName[n-1]
     
@@ -27,9 +28,6 @@ def handle_response(message) -> str:
     
     if message.split()[0] == "annoy":
         return f"nerd {message.split()[1]}"
-    
-    if "HAH" in message:
-        return "shut up"
     
     if "idk" in message:
         return "stupid bitch"
@@ -63,8 +61,8 @@ def handle_response(message) -> str:
             return "ur size: 8"+string+"D"
         
     if message.split()[0] == "8ball":
-        ballList = ["yeah lmao <:hue:945524033338900560>", "bruhaps :moyai:", "yeah nah yeah nah", 
-                    "fuck off", "u suk", "probably"]
+        ballList = ["yeah lmao <:hue:945524033338900560>", "bruhaps :moyai:", 
+                    "probably", "nah", "ur lame"]
         n = random.randint(0,len(ballList))
         return ballList[n-1]
     
